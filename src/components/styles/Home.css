@@ -1,0 +1,23 @@
+/* Home.css */
+.home-container {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Щоб нічого не виходило за межі */
+}
+
+.home-page {
+  width: 100%;
+  height: 100%;
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Встановлюємо ширину на 100% */
+  height: 100%; /* Встановлюємо висоту на 100% */
+  object-fit: cover; /* Щоб відео покривало весь екран */
+  z-index: -1; /* Відео буде на фоні */
+}

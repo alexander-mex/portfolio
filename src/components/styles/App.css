@@ -1,0 +1,103 @@
+/* App.css */
+
+body {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-brand img {
+  width: 85px;
+  height: 60px;
+  position: absolute;
+  top: -2px;
+  left: 23.3%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  margin-right: 2rem;
+}
+
+.navbar {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-collapse {
+  margin-left: 2rem;
+}
+
+.container {
+  max-width: 900px;
+}
+
+#about img {
+  max-width: 150px;
+  border: 3px solid #007bff;
+}
+
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+form {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+}
+
+.mt-5 {
+  margin: 0 !important;
+}
+
+main {
+  min-height: calc(100vh - 100%);
+}
+
+/* Світла тема (за замовчуванням) */
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Темна тема */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #b3b3b3;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(255, 255, 255, 0.1);
+}
+
+/* Загальні стилі */
+
+.theme-toggle, .language-toggle {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.theme-toggle:hover {
+  box-shadow: 0 0 10px var(--card-shadow);
+}
+
+.language-toggle:hover {
+  box-shadow: 0 0 10px var(--card-shadow);
+}

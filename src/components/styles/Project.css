@@ -1,0 +1,474 @@
+/* Projects.css */
+
+#projects {
+  width: 100%;
+  padding: 20px;
+  max-width: 100% !important;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1.03); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1.03); }
+}
+
+.pulse-active {
+  animation: pulse 1.3s infinite alternate !important;
+}
+
+.card-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-wrapper:hover {
+  animation: pulse 1.5s infinite alternate ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+  overflow: hidden;
+}
+
+.image-container img {
+  transition: transform 0.3s ease;
+}
+
+.card-wrapper {
+  position: relative; /* Фіксує кнопку всередині картки */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-wrapper:hover .image-container img {
+  transform: scale(1.1);
+}
+
+.card-wrapper .btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.35s, background 0.3s, transform 0.2s;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #00bfff, #009acd, #005f99);
+  background-size: 200%;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.card-wrapper:hover .btn {
+  opacity: 1;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-wrapper .btn:hover {
+  background-position: right center;
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 191, 255, 0.7);
+}
+
+.card-wrapper .btn:active {
+  transform: translateX(-50%) scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 191, 255, 0.5);
+}
+
+.btn{
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  padding: 0.75rem 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:focus,
+.btn-primary:focus:active,
+.btn-primary:active:focus {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  outline: none !important;
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.4), 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  animation: shine 2.5s infinite ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
+}
+
+.btn-success {
+  padding: 0.75rem 2rem;
+  background: rgba(40, 180, 100, 0.2); /* Темно-зелений з прозорістю */
+  color: #fff;
+  font-size: 1.2rem;
+  border: 1px solid rgba(40, 180, 100, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(40, 180, 100, 0.1); /* М'яка зелена тінь */
+}
+
+/* Фокус та активний стан */
+.btn-success:focus,
+.btn-success:active {
+  background: rgba(40, 180, 100, 0.3);
+  border-color: rgba(40, 180, 100, 0.4);
+  transform: translateY(2px);
+  box-shadow: 0 2px 10px rgba(40, 180, 100, 0.2);
+}
+
+/* Ховер-ефект з хвилею */
+.btn-success:hover {
+  background: rgba(40, 180, 100, 0.25);
+  box-shadow: 0 6px 20px rgba(40, 180, 100, 0.25);
+}
+
+/* Нова анімація — хвиля при наведенні */
+.btn-success:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  animation: wave 1.2s ease-out;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Додамо ще пульсацію при фокусі */
+.btn-success:focus {
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(40, 180, 100, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(40, 180, 100, 0);
+  }
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgb(178, 0, 6) 0%, transparent 30%);
+  transform: translate(-60%, -55%);
+  opacity: 0; 
+  transition: opacity 0.2s ease-out;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
+  100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
+}
+
+.project-card:hover {
+  animation: glow 1.5s infinite alternate ease-in-out;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  opacity: 0.95;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.project-card:hover img {
+  opacity: 0.7;
+  transform: translate3d(0, 0, 0);
+}
+
+.project-card .card-body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.project-card:hover .card-body {
+  opacity: 1;
+}
+
+.project-card .card-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  transform: translate3d(0, -30px, 0);
+  transition: transform 0.35s;
+}
+
+.project-card:hover .card-title {
+  transform: translate3d(0, 0, 0);
+}
+
+.project-card .card-text {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition: opacity 0.5s, transform 0.4s;
+}
+
+.project-card:hover .card-text {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+
+/* Modal Styles */
+.custom-modal {
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  overflow: hidden;
+}
+
+.custom-modal .modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.custom-modal.show .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-header-custom {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: white;
+  border-bottom: none;
+  padding: 20px;
+  position: relative;
+}
+
+.modal-title-custom {
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.close-custom {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  opacity: 0.8;
+  font-size: 1.8rem;
+  font-weight: 300;
+  background: transparent;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.close-custom:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.modal-body-custom {
+  padding: 30px;
+  /* background: #f8f9fa; */
+}
+
+.modal-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+@media (min-width: 768px) {
+  .modal-content-wrapper {
+    flex-direction: row;
+  }
+}
+
+.modal-image-container {
+  flex: 1;
+  min-height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.modal-image:hover {
+  transform: scale(1.03);
+}
+
+.modal-text-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.modal-text-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.modal-footer-custom {
+  border-top: none;
+  background: #f8f9fa;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.modal-close-btn {
+  background: #6c757d;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-action-btn {
+  background: linear-gradient(135deg, #337641, #88bc8efc);
+  border: none;
+  padding: 8px 25px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.modal-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 118, 251, 0.3);
+  background: linear-gradient(135deg, #5d7dfa, #9666e0);
+}
+
+.custom-modal.dark-theme {
+  --bs-modal-bg: #111;
+  color: #eee;
+}
+.custom-modal.light-theme {
+  --bs-modal-bg: #fff;
+  color: #111;
+}
+
+.custom-modal.dark-theme .modal-header,
+.custom-modal.dark-theme .modal-footer {
+  background-color: #1a1a1a;
+  border-color: #333;
+}
+
+.custom-modal.dark-theme .btn-close {
+  filter: invert(1); /* для світлої іконки закриття */
+}

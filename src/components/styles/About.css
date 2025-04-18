@@ -1,0 +1,115 @@
+/* About.css */
+
+#about {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  position: relative;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+#about img {
+  max-width: 300px;
+  border: 3px solid #007bff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 48px;
+  line-height: 1.6;
+  font-family: "Cormorant Infant", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.about .text {
+  text-indent: 30px;
+  margin-top: 10px;
+  font-size: 24px;
+  line-height: 1.6;
+  font-family: "Cormorant Infant", serif;
+  font-weight: 700;
+  font-style: normal;
+  margin-bottom: 3rem;
+}
+
+.about h2::first-letter {
+  color: red;
+  font-size: 48px;
+  font-weight: 900;
+}
+
+.about .text p {
+  margin-bottom: .1px; /* Зменшення зовнішнього відступу між абзацами */
+}
+
+.active {
+  animation: fire 2s ease-in-out forwards; /* Змінено тривалість на 2s */
+}
+
+.reset {
+  transition: all .5s ease-in-out; /* Змінено тривалість на 2s */
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0) translateY(0) rotate(0) scale(1);
+}
+
+@keyframes fire {
+  0% {
+    color: orange; /* Початковий колір (яскраво-оранжевий) */
+    opacity: 1;
+    filter: blur(0) brightness(100%) contrast(100%);
+    transform: translateX(300px) translateY(-300px) rotate(720deg) scale(4);
+  }
+  10% {
+    color: darkred; /* Яскраво-жовтий колір */
+    filter: brightness(120%) contrast(120%);
+  }
+  20% {
+    color: darkorange; /* Темно-оранжевий колір */
+    filter: brightness(110%) contrast(110%);
+  }
+  30% {
+    color: orangered; /* Червоно-оранжевий колір */
+    filter: brightness(130%) contrast(130%);
+  }
+  40% {
+    color: red; /* Яскраво-червоний колір */
+    filter: brightness(140%) contrast(140%);
+  }
+  50% {
+    color: darkred; /* Темно-червоний колір */
+    filter: brightness(150%) contrast(150%);
+  }
+  60% {
+    color: orange; /* Повернення до оранжевого */
+    filter: brightness(120%) contrast(120%);
+  }
+  70% {
+    color: darkgoldenrod; /* Яскраво-жовтий колір */
+    filter: brightness(130%) contrast(130%);
+  }
+  80% {
+    color: red; /* Червоний колір */
+    filter: brightness(140%) contrast(140%);
+  }
+  90% {
+    color: darkorange; /* Темно-оранжевий колір */
+    filter: brightness(110%) contrast(110%);
+  }
+  100% {
+    color: red; /* Фінальний колір (червоний) */
+    opacity: 0;
+    filter: blur(20px) brightness(200%) contrast(200%);
+    transform: translateX(0) translateY(0) rotate(0) scale(1);
+  }
+}
