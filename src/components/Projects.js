@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card, Button, Modal } from "react-bootstrap";
+import PropTypes from 'prop-types';
 import "./styles/Project.css";
 import Image1 from "./img/pic1.jpg";
 import Image2 from "./img/pic2.jpg";
@@ -129,5 +130,10 @@ function Projects({ lang, theme }) {
     </Container>
   );
 }
+
+Projects.propTypes = {
+  lang: PropTypes.string.isRequired,
+  theme: PropTypes.string.isRequired,
+};
 
 export default Projects;
