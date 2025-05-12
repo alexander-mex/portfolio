@@ -20,25 +20,23 @@ function Projects({ lang, theme }) {
       modalImage: Image2,
       link: "https://garage-sigma.vercel.app/",
     },
-const projects = [
-  {
-    title: "RelaxFocusite",
-    details: `RelaxFocusite – Balance Your Mind
-    RelaxFocusite is a modern, interactive web platform designed to help users transition between relaxation and focus with just few clicks. Whether you're seeking a calming escape or an environment to stay deeply productive, the site offers personalized visual experiences, ambient backgrounds, and curated media support for each mode.
-    Key features include:
-    🎯 Mode Selection – Choose between “Relax” and “Concentration” modes after login to tailor your experience.
-    👤 User Profiles – Secure registration, login, and customizable profiles with profile photo uploads.
-    🌌 Visual Effects – Animated canvas elements that enhance immersion based on the selected mode.
-    📹 Media Integration – Embedded YouTube content relevant to your chosen state of mind.
-    ⚙️ Dark Mode Support – Seamlessly adapts to light or dark themes based on user preferences.
-    📧 Email Verification – Secure account management with verification via email.
-    🌐 Responsive Design – Built with React, Bootstrap for a smooth experience across devices.
-    Built with a focus on mental well-being and a clean, minimal aesthetic, RelaxFocusite bridges the gap between serenity and concentration in your digital environment.`,
-    image: Image3,
-    modalImage: Image4,
-    url: "https://relaxfocusite.vercel.app/"
-  },
-]
+    {
+      title: "RelaxFocusite",
+      details: `RelaxFocusite – Balance Your Mind
+      RelaxFocusite is a modern, interactive web platform designed to help users transition between relaxation and focus with just few clicks. Whether you're seeking a calming escape or an environment to stay deeply productive, the site offers personalized visual experiences, ambient backgrounds, and curated media support for each mode.
+      Key features include:
+      🎯 Mode Selection – Choose between “Relax” and “Concentration” modes after login to tailor your experience.
+      👤 User Profiles – Secure registration, login, and customizable profiles with profile photo uploads.
+      🌌 Visual Effects – Animated canvas elements that enhance immersion based on the selected mode.
+      📹 Media Integration – Embedded YouTube content relevant to your chosen state of mind.
+      ⚙️ Dark Mode Support – Seamlessly adapts to light or dark themes based on user preferences.
+      📧 Email Verification – Secure account management with verification via email.
+      🌐 Responsive Design – Built with React, Bootstrap for a smooth experience across devices.
+      Built with a focus on mental well-being and a clean, minimal aesthetic, RelaxFocusite bridges the gap between serenity and concentration in your digital environment.`,
+      image: Image3,
+      modalImage: Image4,
+      url: "https://relaxfocusite.vercel.app/"
+    },
     // Add other projects as needed
   ];
 
