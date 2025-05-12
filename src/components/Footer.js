@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import PropTypes from 'prop-types';
 import translations from "./Changelang";
 import './styles/Footer.css';
 
@@ -17,5 +18,10 @@ function Footer({ lang, toggleLanguage }) {
     </footer>
   );
 }
+
+Footer.propTypes = {
+  lang: PropTypes.string.isRequired,
+  toggleLanguage: PropTypes.func.isRequired,
+};
 
 export default Footer;

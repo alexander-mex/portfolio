@@ -1,28 +1,38 @@
 /* App.css */
 
-body {
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding: 0;
-  height: 100vh;
+#root {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   background-color: var(--bg-color);
+  z-index: -1;
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
 }
 
 .navbar-brand img {
   width: 85px;
   height: 60px;
-  position: absolute;
-  top: -2px;
-  left: 23.3%;
-  transform: translateX(-50%);
   z-index: 1000;
   margin-right: 2rem;
+  height: 60px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 576px) {
+  .navbar-brand img {
+    height: 45px;
+  }
 }
 
 .navbar {
@@ -62,11 +72,14 @@ form {
 }
 
 main {
-  min-height: calc(100vh - 100%);
+  flex: 1 0 auto;
 }
 
 /* Світла тема (за замовчуванням) */
 :root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   --bg-color: #f8f9fa;
   --text-color: #212529;
   --card-bg: #ffffff;

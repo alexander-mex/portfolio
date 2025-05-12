@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import translations from "./Changelang.js";
+import PropTypes from 'prop-types';
+import translations from "./Changelang";
 import "./styles/About.css";
 import Photo from "./img/Iam.jpg";
 
@@ -61,5 +62,9 @@ function About({ lang }) {
     </Container>
   );
 }
+
+About.propTypes = {
+  lang: PropTypes.string.isRequired,
+};
 
 export default About;

@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
+import PropTypes from 'prop-types';
 import "./styles/Home.css";
 import Video from "./video/hacker.mp4";
 
@@ -23,5 +24,9 @@ function Home() {
     </Container>
   );
 }
+
+Home.propTypes = {
+  lang: PropTypes.string.isRequired,
+};
 
 export default Home;

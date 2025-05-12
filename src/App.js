@@ -35,12 +35,16 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div id="root" className="App">
         <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
           <Container>
-            <Navbar.Brand href="/">
-              <img src={Logo} alt="Logo" />
-            </Navbar.Brand>
+          <Navbar.Brand href="/" className="d-flex align-items-center">
+            <img
+              src={Logo}
+              alt="Logo"
+              className="logo-img"
+            />
+          </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
@@ -55,12 +59,12 @@ function App() {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <main>
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Home lang={lang} />} />
             <Route path="/about" element={<About lang={lang} />} />
             <Route path="/projects" element={<Projects lang={lang} theme={theme} />} />
-            <Route path="/contact" element={<Contact lang={lang} />} />
+            <Route path="/contact" element={<Contact lang={lang} theme={theme} />} />
           </Routes>
         </main>
         <Footer lang={lang} toggleLanguage={toggleLanguage} />

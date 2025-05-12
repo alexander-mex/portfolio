@@ -11,9 +11,8 @@ const translations = {
     aboutMe:[
       "Привіт! Я Олександр — веб-розробник, який працює з React, JavaScript та сучасними веб-технологіями. Створюю зручні, адаптивні та стильні сайти, прагнучи поєднати функціональність із гарним дизайном.",
       "Свій шлях у веб-розробці я почав із цікавості до того, як працюють сайти. Мене завжди захоплювало, як натискання кнопки може викликати певну дію, як красиво анімовані елементи додають динаміки сторінкам, а добре продумана логіка спрощує життя користувачам. Саме тому я обрав напрямок фронтенд-розробки, де можу безпосередньо впливати на вигляд і зручність веб-додатків.",
-      "Окрім програмування, я люблю активний відпочинок. Прогулянки та поїздки — це те, що заряджає мене енергією та дає нові ідеї. Особливо мені подобається досліджувати нові місця, змінювати обстановку, адже це надихає і допомагає розширювати кругозір. А після насиченого дня я люблю провести час із сім'єю, переглядаючи цікаві фільми чи серіали. Це мій спосіб розслабитися та отримати дозу якісного контенту.",
+      "Окрім програмування, я люблю активний відпочинок. Прогулянки та поїздки — це те, що заряджає мене енергією та дає нові ідеї. Особливо мені подобається досліджувати нові місця, змінювати обстановку, адже це надихає і допомагає розширювати кругозір. А після насиченого дня я люблю провести час із сім'єю, переглядаючи цікаві фільми чи серіали. Це мій спосіб розслабитися.",
       "Я завжди відкритий до нових можливостей, цікавих проєктів і навчання. Вважаю, що розвиток у сфері веб-технологій не зупиняється ні на секунду, тому постійно вдосконалюю свої навички, експериментую з новими підходами та стежу за трендами.",
-      "Якщо тобі потрібен веб-сайт або цікавий співрозмовник на тему технологій — буду радий поспілкуватися!"
     ],
     project: "3D",
     description: [
@@ -33,10 +32,17 @@ const translations = {
     city: "Місто:",
     cityName: "Миколаїв, Україна",
     name: "Ім'я",
-    email: "E-mail",
+    email: "Email",
     message: "Повідомлення",
     send: "Відправити",
     copyright: "Моє Портфоліо. Всі права захищені.",
+    alertWrong: "Щось пішло не так. Спробуйте ще раз!",
+    alertServer: "Помилка при з'єднанні з сервером.",
+    errorSent: "Помилка при надсиланні:",
+    invalidEmail: "Будь ласка, введіть коректну електронну адресу.",
+    fieldRequred: "Усі поля обов’язкові.",
+    messageTrue: "Повідомлення надіслано успішно!",
+    messageFalse: "Помилка надсилання повідомлення.",
   },
   en: {
     home: "Home",
@@ -46,37 +52,43 @@ const translations = {
     theme_light: "☀️ Light",
     theme_dark: "🌙 Dark",
     language: "🇬🇧 English",
-    gratitude: "Thank you,",
-    aboutMe:[
-      "Hello! I'm Oleksandr — a web developer working with React, JavaScript, and modern web technologies. I create user-friendly, adaptive, and stylish websites, striving to combine functionality with great design. My goal is to make interfaces not only visually appealing but also intuitive and easy to use.",
-      "My journey into web development started with a curiosity about how websites work. I’ve always been fascinated by how clicking a button can trigger an action, how beautifully animated elements add dynamics to a page, and how well-thought-out logic simplifies user interactions. That’s why I chose frontend development, where I can directly influence the look and feel of web applications.",
-      "Beyond programming, I enjoy spending time outdoors. Walks and trips give me energy and inspire new ideas. I particularly love exploring new places and changing my surroundings, as it helps broaden my perspective. After a productive day, I like to relax with my family, watching interesting movies or TV series—my way of unwinding while enjoying quality content.",
-      "I'm always open to new opportunities, exciting projects, and continuous learning. I believe that web technologies evolve every second, so I constantly improve my skills, experiment with new approaches, and keep up with the latest trends.",
-      "If you need a website or just want to chat about technology, feel free to reach out!"
+    gratitude: "Thank you",
+    aboutMe: [
+      "Hello! I'm Oleksandr, a web developer specializing in React, JavaScript, and modern web technologies. I create user-friendly, responsive, and stylish websites, aiming to combine functionality with great design. My goal is to build interfaces that are not only visually appealing but also intuitive and easy to use.",
+      "My journey into web development began with curiosity about how websites work. I've always been fascinated by how a simple button click can trigger actions, how animated elements bring pages to life, and how well-designed logic simplifies user interaction. That's why I chose frontend development, where I can directly shape the look and feel of web applications.",
+      "Outside of programming, I enjoy spending time outdoors. Walking and traveling energize me and spark new ideas. I particularly love exploring new places and changing my environment, as it helps broaden my perspective. After a busy day, I like to unwind with my family, watching interesting movies or series.",
+      "I'm always open to new opportunities, exciting projects, and continuous learning. I believe web technologies evolve constantly, so I keep improving my skills, experimenting with new approaches, and staying updated with the latest trends."
     ],
-    project: "3D",
+    project: "3D Scene",
     description: [
       "A 3D scene built with React using React Three Fiber, Drei, GSAP, Bootstrap, and Three.js.",
-      "The project features a futuristic garage where users can select a car and inspect it from all angles. Upon selection, the car is transferred to an endless straight road, with real-time generation of road segments, fields, and trees.",
-      "Clouds remain permanently on the horizon, maintaining a fixed distance from the car regardless of movement. They are randomly placed at the start of each session and slowly drift sideways (left or right).",
-      "Trees and other landscape elements are procedurally generated at random positions each time. The car can also be reversed and driven backward, with the world continuously generating ahead in the new direction.",
+      "The project features a futuristic garage where users can select a car and inspect it from all angles. When selected, the car moves to an endless straight road with real-time generation of road segments, fields, and trees.",
+      "Clouds remain permanently on the horizon, maintaining a fixed distance from the car regardless of movement. They are randomly positioned at the start of each session and slowly drift sideways (left or right).",
+      "Trees and other landscape elements are procedurally generated in random positions. The car can also be reversed and driven backward, with the world continuously generating ahead in the new direction.",
       "🔧 Controls:",
       "▸ Arrow keys — drive and steer",
       "▸ Spacebar — handbrake"
     ],
-    detail: "More",
+    detail: "Details",
     start: "Start",
     close: "Close",
-    alertMes: "Your message has been sent.",
+    alertMes: "Your message has been sent successfully.",
     info: "Contact me using this form or the contact details below.",
     city: "City:",
     cityName: "Mykolaiv, Ukraine",
     name: "Name",
-    email: "E-mail",
+    email: "Email",
     message: "Message",
     send: "Send",
     copyright: "My Portfolio. All rights reserved.",
-  },
+    alertWrong: "Something went wrong. Please try again!",
+    alertServer: "Server connection error.",
+    errorSent: "Error when sending:",
+    invalidEmail: "Please enter a valid email address.",
+    fieldRequred: "All fields are required.",
+    messageTrue: "Message sent successfully!",
+    messageFalse: "Failed to send message.",
+  }
 };
 
 export default translations;
