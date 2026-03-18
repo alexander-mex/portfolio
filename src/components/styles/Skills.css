@@ -1,0 +1,59 @@
+.skills-section {
+  padding: 100px 0;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skill-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px var(--card-shadow);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  position: relative;
+  margin: 10px;
+  height: calc(100% - 20px);
+}
+
+.skill-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 15px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.skill-card:hover {
+  box-shadow: 0 20px 40px var(--card-shadow);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  transform: translateZ(30px); /* 3D pop effect */
+}
+
+.skill-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+  transform: translateZ(20px); /* 3D pop effect */
+}
+
+/* Light Theme Shadows */
+[data-theme="light"] .skill-card {
+  --card-shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* Dark Theme Shadows */
+[data-theme="dark"] .skill-card {
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}

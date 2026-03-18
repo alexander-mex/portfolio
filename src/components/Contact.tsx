@@ -1,27 +1,61 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Form, Button, Row, Col, Modal } from "react-bootstrap";
-import PropTypes from 'prop-types';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import translations from "./Changelang";
-import "./styles/Contact.css";
 const publicEmail = process.env.REACT_APP_EMAIL;
 
-function Contact({ lang, theme }) {
+interface ContactProps {
+  lang: "ua" | "en";
+  theme: string;
+}
+
+interface ModalInfo {
+  show: boolean;
+  title: string;
+  message: string;
+  variant: string;
+}
+
+function Contact({ lang, theme }: ContactProps) {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [modalInfo, setModalInfo] = useState({ show: false, title: "", message: "", variant: "" });
+  const [modalInfo, setModalInfo] = useState<ModalInfo>({ show: false, title: "", message: "", variant: "" });
+  const formContainerRef = useRef<HTMLDivElement>(null);
+
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 300);
+
+    if (formContainerRef.current) {
+      gsap.fromTo(
+        formContainerRef.current,
+        { opacity: 0, scale: 0.9 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: formContainerRef.current,
+            start: "top 85%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
   }, []);
 
   const handleCloseModal = () => setModalInfo({ ...modalInfo, show: false });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
     if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -73,12 +107,13 @@ function Contact({ lang, theme }) {
   };
 
   return (
-    <main>
+    <div className="contact-section">
       <div className="contact-wrapper">
         <Container
           id="contact"
           fluid="md"
           className={`contact-container ${isVisible ? "fade-in" : ""} ${isSubmitted ? "sent" : ""}`}
+          ref={formContainerRef}
         >
         <Row>
           <Col xs={12}>
@@ -110,7 +145,7 @@ function Contact({ lang, theme }) {
                   placeholder={translations[lang].name}
                   name="name"
                   value={formData.name}
-                  onChange={handleChange}
+                  onChange={handleChange as any}
                   required
                 />
               </Form.Group>
@@ -122,7 +157,7 @@ function Contact({ lang, theme }) {
                   placeholder={translations[lang].email}
                   name="email"
                   value={formData.email}
-                  onChange={handleChange}
+                  onChange={handleChange as any}
                   required
                 />
               </Form.Group>
@@ -135,7 +170,7 @@ function Contact({ lang, theme }) {
                   placeholder={translations[lang].message}
                   name="message"
                   value={formData.message}
-                  onChange={handleChange}
+                  onChange={handleChange as any}
                   required
                 />
               </Form.Group>
@@ -184,13 +219,8 @@ function Contact({ lang, theme }) {
           </Modal.Footer>
         </Modal>
       </div>
-    </main>
+    </div>
   );
 }
-
-Contact.propTypes = {
-  lang: PropTypes.string.isRequired,
-  theme: PropTypes.string.isRequired,
-};
 
 export default Contact;
