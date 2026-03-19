@@ -68,18 +68,22 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   transform-style: preserve-3d;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Firefox blurriness fixes */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  filter: blur(0px);
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   text-shadow:
     0 10px 20px rgba(100, 149, 237, 0.4),
     0 0 40px rgba(100, 149, 237, 0.3);
   cursor: default;
   position: relative;
-  /* Firefox blurriness fixes */
-  backface-visibility: hidden;
-  filter: blur(0px);
-  will-change: transform;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  
+  /* Restrict transition to avoid blur during typing */
+  transition: text-shadow 0.4s ease;
 }
 
 .hero-name:hover {
