@@ -180,8 +180,12 @@ main {
   --modal-bg: #ffffff;
   --modal-text: #212529;
   --border-color: #dee2e6;
+  --placeholder-color: #6c757d;
   --gradient-btn: linear-gradient(135deg, #007bff, #0056b3);
   --gradient-btn-hover: linear-gradient(135deg, #0056b3, #003d82);
+  --modal-header-bg: linear-gradient(135deg, #007bff, #0056b3);
+  --btn-success: linear-gradient(135deg, #28a745, #218838);
+  --btn-danger: linear-gradient(135deg, #dc3545, #bd2130);
 }
 
 /* Темна тема */
@@ -193,8 +197,13 @@ main {
   --modal-bg: #1a1a1a;
   --modal-text: #e0e0e0;
   --border-color: #333333;
+  --placeholder-color: #888888;
+  --placeholder-gradient: radial-gradient(circle, rgba(140, 247, 255, 0.352) 100%);
   --gradient-btn: linear-gradient(135deg, #1e3c72, #2a5298);
   --gradient-btn-hover: linear-gradient(135deg, #2a5298, #1e3c72);
+  --modal-header-bg: linear-gradient(135deg, #1e3c72, #2a5298);
+  --btn-success: linear-gradient(135deg, #1e5a2d, #143d1f);
+  --btn-danger: linear-gradient(135deg, #7a1d26, #58151c);
 }
 
 /* Загальні стилі секцій */
@@ -254,8 +263,8 @@ section,
   border: none !important;
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-  padding: 10px 25px;
-  border-radius: 25px !important;
+  padding: 8px 22px;
+  border-radius: 20px !important;
   transform-style: preserve-3d;
   position: relative;
   overflow: hidden;
@@ -278,29 +287,48 @@ section,
 
 .btn-primary:hover {
   background: var(--gradient-btn-hover) !important;
-  transform: translateZ(30px) rotateX(20deg) translateY(-8px) scale(1.08);
+  transform: translateZ(20px) rotateX(10deg) translateY(-3px) scale(1.04);
   box-shadow:
-    0 25px 50px rgba(0, 123, 255, 0.5),
-    0 0 40px rgba(0, 123, 255, 0.4);
+    0 15px 30px rgba(0, 123, 255, 0.4),
+    0 0 30px rgba(0, 123, 255, 0.3);
 }
 
 .btn-success {
-  background: linear-gradient(135deg, #28a745, #218838) !important;
+  background: var(--btn-success) !important;
   border: none !important;
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-  padding: 10px 25px;
-  border-radius: 25px !important;
+  padding: 8px 22px;
+  border-radius: 20px !important;
   transform-style: preserve-3d;
   position: relative;
   overflow: hidden;
 }
 
 .btn-success:hover {
-  transform: translateZ(30px) rotateX(20deg) translateY(-8px) scale(1.08);
+  transform: translateZ(20px) rotateX(10deg) translateY(-3px) scale(1.04);
   box-shadow:
-    0 25px 50px rgba(40, 167, 69, 0.5),
-    0 0 40px rgba(40, 167, 69, 0.4);
+    0 15px 30px rgba(40, 167, 69, 0.4),
+    0 0 30px rgba(40, 167, 69, 0.3);
+}
+
+.btn-danger {
+  background: var(--btn-danger) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  padding: 8px 22px;
+  border-radius: 20px !important;
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-danger:hover {
+  transform: translateZ(20px) rotateX(10deg) translateY(-3px) scale(1.04);
+  box-shadow:
+    0 15px 30px rgba(220, 53, 69, 0.4),
+    0 0 30px rgba(220, 53, 69, 0.3);
 }
 
 /* About стилі */
@@ -412,16 +440,16 @@ section,
 }
 
 .modal-header-custom {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: var(--modal-header-bg) !important;
   color: white;
   border-bottom: none;
-  padding: 25px;
+  padding: 15px 25px;
   position: relative;
 }
 
 .modal-title-custom {
   font-weight: 600;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin: 0;
 }
 
@@ -445,13 +473,15 @@ section,
 }
 
 .modal-body-custom {
-  padding: 30px;
+  padding: 20px 25px;
 }
 
 .modal-content-wrapper {
   display: flex;
   gap: 30px;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 20px;
 }
 
 .modal-image-container {
@@ -474,9 +504,12 @@ section,
   line-height: 1.6;
 }
 
+.modal-text-content p {
+  margin: 0;
+}
+
 .modal-footer-custom {
   border-top: 1px solid var(--border-color);
-  padding: 20px 30px;
   gap: 15px;
   background-color: var(--modal-bg);
 }
@@ -512,9 +545,19 @@ section,
   transition: all 0.3s ease;
 }
 
+.contact-form .form-control::placeholder {
+  background: var(--placeholder-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--placeholder-color);
+  /* Fallback для старих браузерів */
+  opacity: 1;
+}
+
 .contact-form .form-control:focus {
-  border-color: #6e8efb;
-  box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.2);
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
   background-color: var(--card-bg);
   outline: none;
 }

@@ -75,6 +75,10 @@ function Contact({ lang, theme }: ContactProps) {
         body: JSON.stringify({ ...formData, lang }),
       });
   
+      if (!response.ok) {
+        throw new Error(`Server response error: ${response.status}`);
+      }
+  
       const data = await response.json();
   
       if (data.success) {
