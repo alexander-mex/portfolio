@@ -173,23 +173,6 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  --bg-color: #f8f9fa;
-  --text-color: #212529;
-  --card-bg: #ffffff;
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  --modal-bg: #ffffff;
-  --modal-text: #212529;
-  --border-color: #dee2e6;
-  --placeholder-color: #6c757d;
-  --gradient-btn: linear-gradient(135deg, #007bff, #0056b3);
-  --gradient-btn-hover: linear-gradient(135deg, #0056b3, #003d82);
-  --modal-header-bg: linear-gradient(135deg, #007bff, #0056b3);
-  --btn-success: linear-gradient(135deg, #28a745, #218838);
-  --btn-danger: linear-gradient(135deg, #dc3545, #bd2130);
-}
-
-/* Темна тема */
-[data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #b3b3b3;
   --card-bg: #1e1e1e;
@@ -230,7 +213,6 @@ section,
 }
 
 /* Кнопки теми/мови */
-.theme-toggle,
 .language-toggle {
   background: var(--card-bg);
   color: var(--text-color);
@@ -243,13 +225,11 @@ section,
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   margin-left: 10px;
   margin-right: 10px;
-  /* Додаємо відступ справа, щоб тінь не обрізалася */
   transform-style: preserve-3d;
   position: relative;
   z-index: 1001;
 }
 
-.theme-toggle:hover,
 .language-toggle:hover {
   transform: translateZ(25px) rotateX(15deg) translateY(-5px) scale(1.05);
   box-shadow:

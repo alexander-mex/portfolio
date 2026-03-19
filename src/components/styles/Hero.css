@@ -74,6 +74,12 @@
     0 0 40px rgba(100, 149, 237, 0.3);
   cursor: default;
   position: relative;
+  /* Firefox blurriness fixes */
+  backface-visibility: hidden;
+  filter: blur(0px);
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .hero-name:hover {
@@ -144,13 +150,7 @@
   opacity: 0.3;
 }
 
-/* Light Theme overrides for gradient */
-[data-theme="light"] .hero-name {
-  background: linear-gradient(90deg, #2a5298, #1e3c72);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
 
 /* === 3D FLOATING SHAPES === */
 .floating-shapes {

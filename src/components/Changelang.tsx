@@ -4,8 +4,6 @@ interface TranslatedContent {
   about: string;
   projects: string;
   contact: string;
-  theme_light: string;
-  theme_dark: string;
   language: string;
   gratitude: string;
   heroName: string;
@@ -62,8 +60,6 @@ const translations: Translations = {
     about: "Про мене",
     projects: "Проєкти",
     contact: "Контакти",
-    theme_light: "☀️ Світла",
-    theme_dark: "🌙 Темна",
     language: "🇺🇦 Українська",
     gratitude: "Дякую,",
     heroName: "Олександр",
@@ -156,8 +152,6 @@ const translations: Translations = {
     about: "About Me",
     projects: "Projects",
     contact: "Contact",
-    theme_light: "☀️ Light",
-    theme_dark: "🌙 Dark",
     language: "🇬🇧 English",
     gratitude: "Thank you",
     heroName: "Oleksandr",

@@ -15,22 +15,12 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
   const [lang, setLang] = useState<"ua" | "en">((localStorage.getItem("lang") as "ua" | "en") || "ua");
   const [expanded, setExpanded] = useState<boolean>(false);
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  useEffect(() => {
     localStorage.setItem("lang", lang);
   }, [lang]);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
 
   const toggleLanguage = () => {
     setLang((prevLang) => (prevLang === "ua" ? "en" : "ua"));
@@ -69,23 +59,20 @@ function App() {
               <Nav.Link as={Link} to="contact" spy={true} smooth={true} offset={-70} duration={500} onClick={closeMenu}>{translations[lang].contact}</Nav.Link>
             </Nav>
             <div className="d-flex align-items-center ms-3">
-              <button className="language-toggle me-2" onClick={toggleLanguage}>
+              <button className="language-toggle" onClick={toggleLanguage}>
                 {lang.toUpperCase()}
-              </button>
-              <button className="theme-toggle" onClick={toggleTheme}>
-                {theme === "light" ? translations[lang].theme_dark : translations[lang].theme_light}
               </button>
             </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <main className="main-content">
-        <Hero lang={lang} theme={theme} />
-        <About lang={lang} theme={theme} />
-        <Skills lang={lang} theme={theme} />
-        <Projects lang={lang} theme={theme} />
-        <Story lang={lang} theme={theme} />
-        <Contact lang={lang} theme={theme} />
+        <Hero lang={lang} theme="dark" />
+        <About lang={lang} theme="dark" />
+        <Skills lang={lang} theme="dark" />
+        <Projects lang={lang} theme="dark" />
+        <Story lang={lang} theme="dark" />
+        <Contact lang={lang} theme="dark" />
       </main>
       <Footer lang={lang} toggleLanguage={toggleLanguage} />
     </div>
